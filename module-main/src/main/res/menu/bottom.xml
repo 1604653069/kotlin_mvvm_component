@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tab_main"
+        android:icon="@mipmap/menu_main"
+        android:title="首页" />
+    <item
+        android:id="@+id/tab_project"
+        android:icon="@mipmap/menu_project"
+        android:title="项目" />
+    <item
+        android:id="@+id/tab_square"
+        android:icon="@mipmap/menu_square"
+        android:title="广场" />
+    <item
+        android:id="@+id/tab_wechat"
+        android:icon="@mipmap/menu_wechat"
+        android:title="公众号" />
+    <item
+        android:id="@+id/tab_mine"
+        android:icon="@mipmap/menu_me"
+        android:title="我的" />
+</menu>

@@ -1,0 +1,11 @@
+include ':library-api'
+include ':library'
+include ':module-square'
+include ':module-project'
+include ':module-official'
+include ':module-mine'
+include ':module-home'
+include ':module-main'
+include ':library-base'
+include ':app'
+rootProject.name = "component_kotlin"
