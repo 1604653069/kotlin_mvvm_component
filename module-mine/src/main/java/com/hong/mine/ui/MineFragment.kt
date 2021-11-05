@@ -17,5 +17,7 @@ class MineFragment :BaseMvvmFragment<MineViewModel>() {
     override fun createViewModel(): MineViewModel = ViewModelProvider(this,MineViewModelFactory()).get(MineViewModel::class.java)
 
     override fun getLayoutId(): Int = R.layout.fragment_mine
+    override fun initView() {
 
+    }
 }

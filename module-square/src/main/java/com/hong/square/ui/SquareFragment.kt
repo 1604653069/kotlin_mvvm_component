@@ -17,5 +17,6 @@ class SquareFragment :BaseMvvmFragment<SquareViewModel>() {
     override fun createViewModel(): SquareViewModel = ViewModelProvider(this,SquareViewModelFactory()).get(SquareViewModel::class.java)
 
     override fun getLayoutId(): Int = R.layout.fragment_square
-
+    override fun initView() {
+    }
 }

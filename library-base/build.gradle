@@ -59,4 +59,7 @@ dependencies {
     api rootProject.ext.dependencies["logging-interceptor"]
     api rootProject.ext.dependencies["rxlifecycle"]
     api rootProject.ext.dependencies["rxlifecycle-components"]
+
+    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["glide-compiler"]
 }

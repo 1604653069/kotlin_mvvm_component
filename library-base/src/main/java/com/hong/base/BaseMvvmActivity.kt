@@ -1,11 +1,16 @@
 package com.hong.base
 
+import android.app.Activity
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.alibaba.android.arouter.launcher.ARouter
 import com.hong.base.mvvm.BaseViewModel
+import com.hong.base.utils.OSUtil
 import com.hong.base.view.FlyToast
 import com.jaeger.library.StatusBarUtil
 
@@ -52,5 +57,27 @@ abstract class BaseMvvmActivity<VM : BaseViewModel<*, *>> :AppCompatActivity() {
             flyToast.setMessage(message)
         }
         flyToast.show()
+    }
+
+    /**
+     * 状态栏字体
+     */
+    open fun setStatusBarTextMode(activity: Activity, isDark: Boolean) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            when {
+                OSUtil.isMIUI() -> {
+                    OSUtil.setMIUIStatusBarTextMode(activity,isDark)
+                }
+                OSUtil.isFlyme() -> {
+                    OSUtil.setFlymeStatusBarTextMode(activity,isDark)
+                }
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M -> {
+                    val window = activity.window
+                    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+                    window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                }
+            }
+        }
     }
 }

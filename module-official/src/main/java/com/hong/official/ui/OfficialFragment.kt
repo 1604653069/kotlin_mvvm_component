@@ -18,4 +18,7 @@ class OfficialFragment :BaseMvvmFragment<OfficialViewModel>() {
 
     override fun getLayoutId(): Int = R.layout.fragment_official
 
+    override fun initView() {
+
+    }
 }

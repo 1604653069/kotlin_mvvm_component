@@ -1,5 +1,7 @@
 package com.hong.base
 
+import android.app.Activity
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -20,12 +22,17 @@ abstract class BaseMvvmFragment<VM:BaseViewModel<*,*>> :Fragment(){
         //注册阿里Arouter
         ARouter.getInstance().inject(this)
         viewModel = createViewModel()
-        logic()
         //感知fragment的生命周期
         lifecycle.addObserver(viewModel)
         return mView
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        //在onCreateView中无法直接使用id来获取控件,所以的放在onActivityCreated()方法中
+        initView()
+        logic()
+    }
     fun T(message:String){
         if (flyToast==null) {
             flyToast = FlyToast(context!!,message,Toast.LENGTH_SHORT)
@@ -36,6 +43,8 @@ abstract class BaseMvvmFragment<VM:BaseViewModel<*,*>> :Fragment(){
         }
         flyToast.show()
     }
+
+    abstract fun initView()
 
     abstract fun logic()
 

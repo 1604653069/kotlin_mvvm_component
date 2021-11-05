@@ -18,6 +18,7 @@ class MainActivity : BaseMvvmActivity<MainViewModel>() {
     override fun logic() {
         initFragments()
         initListener()
+        setStatusBarTextMode(this,true)
     }
 
     private fun initListener() {

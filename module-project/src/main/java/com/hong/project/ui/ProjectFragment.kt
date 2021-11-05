@@ -18,5 +18,8 @@ class ProjectFragment :BaseMvvmFragment<ProjectViewModel>() {
     override fun createViewModel(): ProjectViewModel = ViewModelProvider(this,ProjectViewModelFactory()).get(ProjectViewModel::class.java)
 
     override fun getLayoutId(): Int = R.layout.fragment_project
+    override fun initView() {
+
+    }
 
 }
